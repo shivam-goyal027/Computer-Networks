@@ -195,7 +195,9 @@ class SocketSend implements Runnable{
 	public void run(){
 		while(true){
 			try{
+				System.out.println("here");
 				String sentence = inFromUserSend.readLine();
+				System.out.println("here1");
 				//read sentence in @[recipient username] [message] SEND format
 				if(sentence.charAt(0)!='@'){
 					System.out.println("Wrong Format !!");
@@ -226,7 +228,7 @@ class SocketSend implements Runnable{
 				System.out.println("Y");
 				String reckey=inFromServerSend.readLine();
 				System.out.println("Ye "+reckey);
-				if(!inFromServerSend.readLine().equals("")){
+				if(!inFromServerSend.readLine().equals("") || reckey.equals("No User with username "+recipient)){
 					System.out.println("No user with this name");
 					continue;
 				}

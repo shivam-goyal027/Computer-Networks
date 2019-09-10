@@ -188,7 +188,9 @@ class SocketThreadSend implements Runnable {
 	    				continue;
 		   			}
 		   		}
+		   		System.out.println("here");
 				sentence = inFromClient.readLine();
+				System.out.println("here1");
 				System.out.println("This "+sentence);
 
 				if(sentence.equals(""))
@@ -200,7 +202,7 @@ class SocketThreadSend implements Runnable {
 									System.out.println("Errorrrrrr");
 									outToClient.writeBytes("No User with username "+sentence.substring(6)+'\n'+'\n');
 									continue;
-								}
+					}
 					else{
 						System.out.println("Good");
 						outToClient.writeBytes(TCPServer.hashtable2.get(sentence.substring(6))+'\n'+'\n');
